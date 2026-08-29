@@ -69,6 +69,7 @@ const kpis = [
     previous: "2,8%",
     delta: "-0,7 p.p.",
     positive: true,
+    downIsGood: true,
     hint: "Cancelamentos no trimestre",
   },
   {
@@ -119,9 +120,11 @@ function KpiCard({
   previous,
   delta,
   positive,
+  downIsGood,
   hint,
-}: (typeof kpis)[number]) {
-  const Icon = positive ? ArrowUpRight : ArrowDownRight;
+}: (typeof kpis)[number] & { downIsGood?: boolean }) {
+  const trendingDown = downIsGood ? true : !positive;
+  const Icon = trendingDown ? ArrowDownRight : ArrowUpRight;
   return (
     <Card className="shadow-sm">
       <CardContent className="p-4 sm:p-5">
