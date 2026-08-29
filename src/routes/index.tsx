@@ -449,8 +449,14 @@ function Dashboard() {
           </CardContent>
         </Card>
 
-        <footer className="pb-4 text-center text-xs text-muted-foreground">
-          Dados consolidados do trimestre Q3 2026 · App Organizador Financeiro
+        <footer className="pb-4 text-center">
+          <p className="text-xs text-muted-foreground">
+            Dados consolidados do trimestre Q3 2026 · App Organizador Financeiro
+          </p>
+          <p className="mt-1 text-[11px] text-muted-foreground/70">
+            Projeto conceitual com dados simulados, desenvolvido para demonstração de
+            habilidades analíticas.
+          </p>
         </footer>
       </main>
     </div>
