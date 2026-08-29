@@ -69,6 +69,7 @@ const kpis = [
     previous: "2,8%",
     delta: "-0,7 p.p.",
     positive: true,
+    downIsGood: true,
     hint: "Cancelamentos no trimestre",
   },
   {
@@ -119,9 +120,11 @@ function KpiCard({
   previous,
   delta,
   positive,
+  downIsGood,
   hint,
-}: (typeof kpis)[number]) {
-  const Icon = positive ? ArrowUpRight : ArrowDownRight;
+}: (typeof kpis)[number] & { downIsGood?: boolean }) {
+  const trendingDown = downIsGood ? true : !positive;
+  const Icon = trendingDown ? ArrowDownRight : ArrowUpRight;
   return (
     <Card className="shadow-sm">
       <CardContent className="p-4 sm:p-5">
@@ -347,8 +350,67 @@ function Dashboard() {
                 adotar a cópia da Variante B nas próximas campanhas.
               </p>
             </div>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[480px] text-sm">
+            {/* Mobile: compact cards per variant */}
+            <div className="space-y-3 sm:hidden">
+              {[
+                {
+                  nome: "Variante A — Lembrete genérico",
+                  envios: "8.000",
+                  taxa: "3,5%",
+                  retornos: "280",
+                  vencedora: false,
+                },
+                {
+                  nome: "Variante B — Meta de economia personalizada",
+                  envios: "8.000",
+                  taxa: "5,1%",
+                  retornos: "408",
+                  vencedora: true,
+                },
+              ].map((v) => (
+                <div
+                  key={v.nome}
+                  className={`rounded-xl border p-4 ${
+                    v.vencedora
+                      ? "border-primary/40 bg-accent"
+                      : "border-border bg-card"
+                  }`}
+                >
+                  <div className="flex min-w-0 items-start justify-between gap-2">
+                    <p className="text-sm font-medium text-foreground">{v.nome}</p>
+                    {v.vencedora && (
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">
+                        <Trophy className="h-3 w-3" /> Vencedora
+                      </span>
+                    )}
+                  </div>
+                  <dl className="mt-3 grid grid-cols-3 gap-2 text-center">
+                    <div className="rounded-lg bg-background/60 px-2 py-2">
+                      <dt className="text-[11px] text-muted-foreground">Envios</dt>
+                      <dd className="text-sm font-semibold text-foreground">{v.envios}</dd>
+                    </div>
+                    <div className="rounded-lg bg-background/60 px-2 py-2">
+                      <dt className="text-[11px] text-muted-foreground">Retorno</dt>
+                      <dd
+                        className={`text-sm font-semibold ${
+                          v.vencedora ? "text-primary" : "text-foreground"
+                        }`}
+                      >
+                        {v.taxa}
+                      </dd>
+                    </div>
+                    <div className="rounded-lg bg-background/60 px-2 py-2">
+                      <dt className="text-[11px] text-muted-foreground">Retornos</dt>
+                      <dd className="text-sm font-semibold text-foreground">{v.retornos}</dd>
+                    </div>
+                  </dl>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop: full table, no horizontal scroll */}
+            <div className="hidden sm:block">
+              <table className="w-full table-fixed text-sm">
                 <thead>
                   <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-muted-foreground">
                     <th className="py-2 pr-4 font-medium">Variante</th>
