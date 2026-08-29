@@ -162,7 +162,7 @@ function SectionTitle({ icon: Icon, title, sub }: { icon: typeof BarChart3; titl
 }
 
 function Dashboard() {
-  const funnelMax = funnel[0].valor;
+  const funnelMax = funnel[0]!.valor;
 
   return (
     <div className="min-h-screen bg-background">
@@ -244,7 +244,7 @@ function Dashboard() {
             <CardContent className="space-y-3 pt-2">
               {funnel.map((f, i) => {
                 const pct = (f.valor / funnelMax) * 100;
-                const prev = i > 0 ? funnel[i - 1].valor : null;
+                const prev = i > 0 ? funnel[i - 1]!.valor : null;
                 return (
                   <div key={f.etapa}>
                     <div className="mb-1 flex items-baseline justify-between gap-2 text-sm">
@@ -272,7 +272,7 @@ function Dashboard() {
               <p className="pt-1 text-xs text-muted-foreground">
                 Conversão total do funil:{" "}
                 <span className="font-semibold text-foreground">
-                  {((funnel[4].valor / funnelMax) * 100).toFixed(1).replace(".", ",")}%
+                  {((funnel[4]!.valor / funnelMax) * 100).toFixed(1).replace(".", ",")}%
                 </span>{" "}
                 — gargalo principal entre criar conta e conectar banco.
               </p>
@@ -306,7 +306,7 @@ function Dashboard() {
                       fontSize={12}
                     >
                       {motivos.map((m, i) => (
-                        <Cell key={m.name} fill={pieColors[i]} />
+                        <Cell key={m.name} fill={pieColors[i]!} />
                       ))}
                     </Pie>
                     <Tooltip
