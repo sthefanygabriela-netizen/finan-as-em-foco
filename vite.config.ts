@@ -6,10 +6,25 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+// Inside Lovable the preview runs on SSR (LOVABLE_NITRO_PRESET is set).
+// Outside it (e.g. GitHub Actions), build a fully static site: every route is
+// prerendered to HTML into dist/client — no server needed in production.
+const isStaticBuild = !process.env['LOVABLE_NITRO_PRESET'];
+
 export default defineConfig({
-  tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
-    server: { entry: "server" },
-  },
+  // Set BASE_PATH="/nome-do-repo/" when publishing to a GitHub Pages project site.
+  vite: isStaticBuild && process.env['BASE_PATH'] ? { base: process.env['BASE_PATH'] } : {},
+  nitro: isStaticBuild ? false : true,
+
+  tanstackStart: isStaticBuild
+    ? {
+        // Prerender all crawlable routes to static HTML (index.html at the root).
+        prerender: { enabled: true, crawlLinks: true, autoSubfolderIndex: true },
+        pages: [{ path: "/", prerender: { enabled: true } }],
+      }
+    : {
+        // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
+        // nitro/vite builds from this
+        server: { entry: "server" },
+      },
 });
