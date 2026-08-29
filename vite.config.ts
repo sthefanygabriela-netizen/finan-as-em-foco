@@ -12,7 +12,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 const isStaticBuild = !process.env.LOVABLE_NITRO_PRESET;
 
 export default defineConfig({
-  nitro: isStaticBuild ? { preset: "static" } : undefined,
+  nitro: isStaticBuild ? false : undefined,
   tanstackStart: isStaticBuild
     ? {
         // Prerender all crawlable routes to static HTML (index.html at the root).
