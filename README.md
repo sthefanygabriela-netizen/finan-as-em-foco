@@ -1,24 +1,24 @@
-# Finanças em Foco
+# 💰 Dashboard de Produto — App Organizador Financeiro
 
-Construa um dashboard visual responsivo para o “App Organizador Financeiro”, referente ao período Q3 2026 (Jul–Ago–Set), usando os dados fornecidos nesta conversa. Inclua cards de KPIs (NPS 71, CSAT 4,7, churn 2,1%, usuários ativos 24.800, com valores anteriores e variações), gráfico comparativo de instalações vs. desinstalações por mês (Jul 9200/2100, Ago 10500/2450, Set 11800/2600), funil de conversão (31500, 22400, 14800, 9100, 3200), gráfico de pizza com motivos de desinstalação (34%, 22%, 19%, 15%, 10%) e tabela do teste A/B de push destacando a Variante B vencedora (A: 8000 envios, 3,5%; B: 8000 envios, 5,1%; significância 96%). Visual profissional, claro, em português, com paleta ligada a finanças pessoais e boas versões mobile. Mostre o preview ao final.
+*Projeto conceitual com dados simulados, desenvolvido para demonstração de habilidades analíticas.*
 
-This project was built with [Lovable](https://lovable.dev).
+`PRODUCT ANALYTICS` `TESTES A/B` `PRODUCT DISCOVERY` `LOVABLE` `REACT`
 
-## Build with Lovable
+🔗 **[Ver dashboard ao vivo](https://sthefanygabriela-netizen.github.io/finan-as-em-foco/)**
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/a2d9cdc5-b071-4a30-b2f7-1294c4c0921a).
+---
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## 📖 Sobre
 
-## Development
+Dashboard de métricas de produto desenvolvido para simular a análise trimestral (Q3 2026) de um app fictício de organização financeira, com foco em aquisição, engajamento, retenção e otimização por testes A/B — reproduzindo o tipo de análise que orienta decisões de roadmap e priorização em um time de produto.
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## 🎯 Objetivos
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+- Consolidar indicadores-chave de produto (NPS, CSAT, Churn, usuários ativos)
+- Mapear o funil de conversão e identificar gargalos
+- Validar hipóteses de produto por meio de teste A/B
+- Investigar causas de abandono (desinstalação) para orientar priorização
+
+## 💡 Principais Insights
+
+- **Gargalo
