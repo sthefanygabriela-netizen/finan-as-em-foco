@@ -21,4 +21,30 @@ Dashboard de métricas de produto desenvolvido para simular a análise trimestra
 
 ## 💡 Principais Insights
 
-- **Gargalo
+- **Gargalo no funil**: 61,5% dos usuários que criam conta não conectam a conta bancária — maior ponto de perda antes da etapa de monetização
+- **Teste A/B validado**: notificações com meta de economia personalizada aumentam a conversão em **+45,7%** frente a lembretes genéricos (significância estatística de 96%)
+- **Motivo de desinstalação**: preço da assinatura lidera com 34% das respostas — sinaliza necessidade de revisar a régua de valor percebido do plano gratuito
+- **Retenção em alta**: NPS subiu de 64 para 71 e churn caiu de 2,8% para 2,1% no trimestre, indicando maturação do produto
+
+## 📊 Métricas do dashboard
+
+- NPS / CSAT
+- Taxa de Churn
+- Usuários Ativos (DAU/MAU)
+- Instalações vs. Desinstalações
+- Funil de Conversão
+- Motivos de Desinstalação
+- Teste A/B de Notificações Push
+
+## 🛠️ Tecnologias
+
+- Lovable (React)
+- GitHub Pages / GitHub Actions
+
+## 🚀 Competências demonstradas
+
+- Análise e Priorização de Produto
+- Testes A/B e Leitura Estatística
+- Product Discovery (identificação de gargalos e causas raiz)
+- Visualização e Storytelling com Dados
+- Deploy e versionamento (GitHub)
